@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PGP Key Viewer</title>
+<style>
+    /* Γενικά Στυλ */
+    body {
+        font-family: 'Roboto', Arial, sans-serif;
+        background-color: #1E1E2F;
+        color: #E4E6EB;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    header {
+        padding: 20px 0;
+        background-color: #24243E;
+        color: #FFD700;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .container {
+        padding: 50px 20px;
+    }
+
+    .container p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+    }
+
+    .icon-button {
+        background: linear-gradient(135deg, #6A5ACD, #00BFFF);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .icon-button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon-button img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Στυλ Modal */
+    .dialog {
+        display: none; /* Αρχικά κρυφό */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(30, 30, 47, 0.9);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    /* Στυλ του κουμπιού που θα ανοίγει το PGP Key */
+    #swt-vendorpgp:not(:checked) ~ .swt-vendorpgp-body {
+        display: none;
+    }
+
+    .swt-vendorpgp-body {
+        background: #2A2A40;
+        color: #E4E6EB;
+        padding: 20px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 600px;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .button {
+        background-color: #FF6B6B;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #FF4C4C;
+    }
+
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #FF6B6B;
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        transform: scale(1.2);
+    }
+
+    textarea {
+        width: 100%;
+        height: 300px;
+        background-color: #1F1F2E;
+        color: #00FFAB;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 14px;
+        padding: 10px;
+        border-radius: 8px;
+        border: none;
+        resize: none;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Κουμπί Κλεισίματος */
+    .button {
+        background-color: #FF6B6B;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #FF4C4C;
+    }
+
+    /* Στυλ για το κουμπί εμφάνισης PGP key */
+    label[for="swt-vendorpgp"] {
+        background-color: #FFD700;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        color: #1E1E2F;
+        display: inline-block;
+        margin-bottom: 20px;
+        transition: background-color 0.3s;
+    }
+
+    label[for="swt-vendorpgp"]:hover {
+        background-color: #FFB800;
+    }
+
+</style>
+
+</head>
+<body>
+    <header>
+        Use Vendor's PGP Key to Encrypt the Message!
+    </header>
+    <div class="container">
+        <p>Click the icon to view the PGP key:</p>
+        <!-- Κουμπί για εμφάνιση του Modal -->
+        <button class="icon-button" onclick="openModal()">
+            <img src="person-icon.png" alt="Person Icon" />
+        </button>
+    </div>
+
+    <!-- Modal -->
+    <div class="dialog" id="pgpModal">
+        <div class="swt-vendorpgp-body">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Vendor's PGP Public Key</h2>
+            <textarea readonly rows="20">
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+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
+=AzuM
+-----END PGP PUBLIC KEY BLOCK-----
+            </textarea>
+            <button class="button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('pgpModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('pgpModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+

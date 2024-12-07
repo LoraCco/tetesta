@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Συχνές Ερωτήσεις</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .toggle-language {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .toggle-language label {
+      margin: 0 10px;
+      font-size: 1em;
+    }
+    .faq-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .faq-item {
+      margin-bottom: 15px;
+    }
+    .faq-item h2 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #444;
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .faq-item p {
+      margin: 5px 0 0 0;
+      font-size: 1em;
+      line-height: 1.5;
+      display: none;
+    }
+    .faq-item.active p {
+      display: block;
+    }
+.tablink {
+    background-color: #2b77f2;
+    color: white;
+    position: static;
+    border: groove;
+    font-size: 17px;
+}
+.topleft {
+display: grid;
+justify-content: center;
+    font-size: 18px;
+}
+  </style>
+
+</head>
+
+<body>
+  <header>
+<div id="miranHeader" class="tablink" style="display: grid;">
+    <a href="" class="topleft">
+        <img src="img/logo.png" alt="Logo" style="height:75px;">
+    </a>
+    <h1>Συχνές Ερωτήσεις</h1>
+    <div class="toggle-language">
+      <label for="lang-el">ΕΛ</label>
+      <input type="checkbox" id="lang-toggle" name="lang-toggle">
+      <label for="lang-en">EN</label>
+    </div>
+  </header>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <h2>Είναι αυτό αληθινό;</h2>
+      <p>Ναι, γιατί έχουμε φτάσει στο έτος 2024 και αυτό είναι το μέλλον!</p>
+    </div>
+    <div class="faq-item">
+      <h2>Σοβαρά;</h2>
+      <p>Απολύτως, αυτή η πλατφόρμα δημιουργήθηκε με προσοχή.</p>
+    </div>
+    <div class="faq-item">
+      <h2>Πώς δίνω τη διεύθυνσή μου με ασφάλεια;</h2>
+      <p>Παρακαλώ βεβαιώσου ότι παρέχεις τη δική σου ασφαλή διεύθυνση.</p>
+    </div>
+    <div class="faq-item">
+      <h2>Υπάρχει πιθανότητα να χαθούν χρήματα;</h2>
+      <p>Εγγυόμαστε ασφαλείς συναλλαγές, αλλά συνιστούμε προσεκτικό έλεγχο.</p>
+    </div>
+  </div>
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item h2');
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
+

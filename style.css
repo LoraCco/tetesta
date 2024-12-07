@@ -1,0 +1,309 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Calibri", Arial, sans-serif;
+    background-color: #f9f9f9; /* Απαλό φόντο */
+}
+a{
+  color: #2b77f2;
+}
+h1{
+  font-family: "Calibri", Arial, sans-serif;
+  background-color: #fff;
+  color: #e65c00;
+  padding: 20px;
+  border-bottom: 2px solid #ccc;
+  position: relative;
+  top: -30px;
+}
+hr{
+  width: 90%;
+  height: 0;
+  border-top: 1px solid #eee;
+}
+.shopCont{
+  width: 75%;
+  margin: 10px;
+  display: table;
+}
+.shopImg{
+  position: relative;
+  float: left;
+  width: 20%;
+  max-width: 20%;
+  display: inline-block;
+}
+.shopImg img{
+  max-width: 100%;
+}
+.shopDesc{
+  position: relative;
+  float: left;
+  width: 50%;
+  display: inline-block;
+  padding: 20px;
+}
+.shopAdd{
+  position: relative;
+  float: left;
+  width: 20%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.shopAdd input{
+  width: 100%;
+  font-size: 18px;
+}
+.itemName{
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
+}
+.itemCost{
+  color: #333;
+  font-weight: bold;
+  display: block;
+}
+.itemInfo{
+  color: #333;
+}
+#cartCont {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    width: 22%;
+    text-align: center;
+    border-radius: 10px; /* Στρογγυλεμένες γωνίες */
+    overflow: hidden; /* Για ομαλή εμφάνιση */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Σκιά */
+    background-color: #f9f9f9; /* Απαλό φόντο */
+    border: 1px solid #ddd; /* Διακριτικό περίγραμμα */
+}
+#cartCont input{
+   padding: 15px;
+   background-color: #2b77f2;
+   color: #fff;
+   width: 100%;
+   float: right;
+   border: 1px solid #fff;
+   font-weight: strong;
+   font-size: 18px;
+}
+#cartCont input:hover{
+   padding: 15px;
+   background-color: #2b77f2;
+   color: #fff;
+   width: 100%;
+   float: right;
+   border: 1px solid #fff;
+   font-weight: strong;
+   font-size: 18px;
+}
+#cartCont input {
+    padding: 15px;
+    background-color: #007BFF;
+    color: #fff;
+    width: 100%;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 0 0 10px 10px; /* Στρογγυλεμένες γωνίες στο κάτω μέρος */
+}
+#cartHeader {
+    text-align: center;
+    font-size: 18px;
+    background-color: #007BFF; /* Μπλε φόντο */
+    color: #fff; /* Λευκό κείμενο */
+    font-weight: bold;
+    padding: 15px;
+    border-bottom: 1px solid #0056b3; /* Σκοτεινότερη απόχρωση για όριο */
+}
+#cartCost {
+    background-color: #f0f0f0; /* Απαλό γκρι φόντο */
+    padding: 10px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
+    border-top: 1px solid #ddd; /* Γραμμή διαχωρισμού */
+}
+#cartHeader {
+    text-align: center;
+    font-size: 18px;
+    background-color: #007BFF; /* Μπλε φόντο */
+    color: #fff; /* Λευκό κείμενο */
+    font-weight: bold;
+    padding: 15px;
+    border-bottom: 1px solid #0056b3; /* Σκοτεινότερη απόχρωση για όριο */
+}
+.cartPrice{
+  margin: 3px;
+  float: right;
+  color: #666;
+}
+#checkCont{
+  width: 75%;
+  padding: 10px;
+}
+#viewCart{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #eee;
+  padding: 35px;
+  width: 75%;
+}
+#viewCart input.text{
+  width: 75%;
+  padding: 7px;
+}
+#viewCart input.button{
+   padding: 15px;
+   background-color: #2b77f2;
+   color: #fff;
+   width: 200px;
+   float: right;
+   border: 1px solid #fff;
+   font-weight: strong;
+   font-size: 18px;
+}
+#viewTitle{
+  font-size: 26px;
+  color: #000;
+  display: block;
+}
+#viewTable{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  width: 75%;
+}
+#viewTable td{
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+}
+#viewTable td.blank{
+  border-bottom: 1px solid #fff;
+  padding: 15px;
+  font-weight: bold;
+}
+#viewTable input{
+   padding: 15px;
+   background-color: #2b77f2;
+   color: #fff;
+   width: 200px;
+   float: right;
+   border: 1px solid #fff;
+   font-weight: strong;
+   font-size: 18px;
+}
+#viewTable input:hover{
+   padding: 15px;
+   background-color: #2b77f2;
+   color: #fff;
+   width: 200px;
+   float: right;
+   border: 1px solid #fff;
+   font-weight: strong;
+   font-size: 18px;
+}
+
+.confirmShip{
+   width: 75%;
+   text-align: right;
+   padding: 15px;
+}
+#payAmt{
+   position: relative;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 15px;
+   font-size: 20px;
+   width: 70%;
+   text-align: center;
+}
+#payBox{
+  width: 60%;
+  height: 30px;
+  font-size: 19px;
+  position: relative;
+  text-align: center;
+}
+#qrcode{
+  text-align: center;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  padding: 15px;
+}
+#messages{
+  font-size: 21px;
+  font-weight: bold;
+  color: #009933;
+}
+.tableHeader{
+   font-weight: bold;
+}
+.productTable{
+   width: 90%;
+}
+.productTable td{
+   max-width: 30%;
+   border-bottom: 1px solid #ccc;
+   border-right: 1px solid #ccc;
+}
+.inputArea{
+   height: 120px;
+   width: 70%;
+   padding: 7px;
+}
+.errMsg{
+   font-size: 20px;
+   color: #2b77f2;
+   font-weight: bold;
+}
+
+#add{
+  position: relative;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  color: #e65c00;
+  font-weight: bold;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px; /* Απόσταση μεταξύ των κουμπιών */
+position: absolute;
+left: 1500px;
+top: 25px;
+}
+
+.header-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF; /* Χρώμα κουμπιών */
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.header-buttons button:hover {
+    background-color: #0056b3; /* Χρώμα κουμπιών όταν περνάει ο δείκτης */
+}
+
